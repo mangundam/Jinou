@@ -1,0 +1,453 @@
+<html>
+<head>
+<title>Jinou Food</title>
+<meta charset="utf-8">
+<style>
+body {
+	//min-height: 1800px;
+	//max-width: 1200px;
+	//min-width:1100px;
+	width:1080px;
+	height:1800px;
+	//margin: 0 auto;
+
+}
+.main{
+	width:1300px;
+	height:1800px;
+	//border: 5px solid #00FF00;
+	background-color:#DEFFCA;
+	//margin:100px;
+}
+.line{
+	padding: 448.5px 0px 0px 0px;
+	width:450px;
+	margin:0px 0px 0px 0px;
+	border-bottom: 3px solid red;
+	position:absolute;
+}
+.lineBox{
+	width:900px;
+	height:900px;
+	position:absolute;
+	//border: 5px solid red;
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 60px solid #555;
+	position:absolute;
+	margin:-15px 420px 420px 420px;
+	border-top-color:#50FA50;
+}
+
+
+.Cricle{
+	border:5px #70EE70 solid;
+	height: 900px;
+	width: 900px;
+	background-color: #FFF;
+	border-radius: 50%;
+	align: center;
+	margin:200px auto;
+}
+
+
+.Choice_text{
+	position:absolute;
+	bottom:-2px;
+	right:100px;
+	transform: rotate(180deg);
+	font-size:30px;
+	font-weight: bold; 
+}
+//.centerCircle{
+	//border:5px #70EE70 solid;
+	//height: 30px;
+	//width: 30px;
+	//background-color: #70EE70;
+	//border-radius: 50%;
+	//position:absolute;
+	//margin:435px;
+//}
+.timeStart{
+	position:absolute;
+	height: 180px;
+	width: 180px;
+	background-color: #F0F0F0;
+	border-radius: 50%;
+	border:5px #70EE70 solid;
+	margin:360px 0px 0px 360px ;
+	background-image: url('Image/start.png');
+	background-size: 100% 100%;
+	font-size:18px;
+	font-weight:bold;
+	text-align:center;
+}
+.timeStart:active {
+	background-color: #C0FeC0;
+}
+.timeStart:hover {
+	background-color: #E0FeE0;
+}
+.btn{
+	width:300px;
+	height:300px;
+	font-size:40px;
+	font-weight: bold; 
+	margin:auto 10px;
+	margin:20px 8px 0px 8px;
+}
+.btn:hover {
+	background-color:#E0E0E0;
+}
+.breakfast{
+	visibility: hidden;
+	background-color:#FCE070;
+	background-image: url('Image/morning.png');
+	background-size: 100% 100%;
+}
+.lunch{
+	background-color:#EC9040;
+	background-image: url('Image/lunch.png');
+	background-size: 100% 100%;
+}
+.dinner{
+	background-color:#7C70A0;
+	background-image: url('Image/dinner.png');
+	background-size: 100% 100%;
+}
+.drink{
+	visibility: hidden;
+	background-color:#7C70A0;
+	background-image: url('Image/drink.png');
+	background-size: 100% 100%;
+}
+.breakfast:active {
+	border: 6px #000000 solid;
+}
+.lunch:active {
+	border: 6px #000000 solid;
+}
+.dinner:active {
+	border: 6px #000000 solid;
+}
+.drink:active {
+	border: 6px #000000 solid;
+}
+.breakfast:hover {
+	border: 6px #000000 solid;
+}
+.lunch:hover {
+	border: 6px #000000 solid;
+}
+.dinner:hover {
+	border: 6px #000000 solid;
+}
+.drink:hover {
+	border: 6px #000000 solid;
+}
+.Strbtn{
+	height:200px;
+	font-weight: bold; 
+	width:200px;
+	margin:30px 0px 0px 30px;
+	font-size:38px;
+	background-color: #88FF88;
+	background-image: url('Image/Spin.png');
+	background-size: 100% 100%;
+}
+.Strbtn:hover {
+  background-color:#E0FFE0;
+  border: 6px #000000 solid;
+}
+.Pausebtn{
+	height:200px;
+	font-weight: bold; 
+	width:200px;
+	margin:30px 0px 0px 30px;
+	font-size:38px;
+	background-color: #88FF88;
+	background-image: url('Image/SpinPause.gif');
+	background-size: 100% 100%;
+}
+.Pausebtn:hover {
+	background-color:#FFE0E0;
+	border: 6px #000000 solid;
+}
+
+#result{
+	margin:60px auto -150px auto;
+	font-size:100px;
+	width:700px;
+	height: 120px;
+	//border: 5px solid red;
+	text-align:center;
+}
+.slider {
+	-webkit-appearance: none;
+	width: 800px;
+	height: 100px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+	align:center;
+	margin:80px 0px 0px 30px;
+	position:absolute;
+	background-image: url('Image/Sliderbar.png');
+	background-size: 100% 100%;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {//button
+	-webkit-appearance: none;
+	appearance: none;
+	width: 180px;
+	height: 180px;
+	//background: #04CC04;
+	cursor: pointer;
+	background-image: url('Image/slider.png');
+	background-size: 100% 100%;
+}
+
+.slider::-moz-range-thumb {
+	width: 80px;
+	height: 80px;
+	background: #04AA6D;
+	cursor: pointer;
+}
+.linkbtn{
+	background-image: url('Image/maps.png');
+	height: 200px;
+	width: 200px;
+	background-size: 100% 100%;
+	margin:25px 0px 0px 850px;
+	position:absolute;
+	background-color:rgba(0, 0, 0, 0);
+	border: 0px #000000 solid;
+}
+.linkbtn:hover {
+	border: 6px #000000 solid;
+}
+</style></head>
+<body>
+<script>
+var count=0;
+var Spinning = false;
+var SpinSpeed = 1;
+var list;
+var reverse_list;
+var shop,link;
+function delay(n){
+    return new Promise(function(resolve){
+        setTimeout(resolve,n*1000);
+    });
+}
+async function rotat() {
+
+	const angles = [];
+  if (Spinning == false){
+    Spinning = true;
+	const btnText = document.getElementById("mainBtn");
+	btnText.textContent = "Pause";
+	btnText.classList.add('Pausebtn');
+	btnText.classList.remove('Strbtn');
+  }
+  else{
+	Spinning = false;
+	const btnText = document.getElementById("mainBtn");
+	btnText.textContent = "SPIN";
+	btnText.classList.add('Strbtn');
+	btnText.classList.remove('Pausebtn');
+  }
+  const rectangle = document.getElementsByClassName('lineBox') 
+  angle = 360/rectangle.length
+  while(Spinning){
+  if(Spinning==false){
+  break;}
+    count++; 
+	  for(var j=0;j<rectangle.length;j++){
+		var SpinSpeed = document.getElementById("Speed").value/100+1;
+		var deg = (SpinSpeed*count +(angle*j))+90;
+		rectangle[j].style.transform = "rotate(" + deg + "deg)";
+	  }if(Spinning==false){
+  break;}
+		which = ((deg-90)/angle+1)%rectangle.length;
+		document.getElementById("result").textContent = reverse_list[Math.floor(which)];
+	  	await delay(0.001);
+  }
+  
+}
+async function countDown() {
+	if (Spinning == true){
+	rotat();
+	}
+	
+	if (Spinning == false){
+    Spinning = true;
+	var SpinBar = document.getElementById("Speed").value/50+1;
+	var startUp_speed = (1 + Math.random() * 8)+SpinBar;
+	//console.log(SpinBar)
+	//console.log(startUp_speed)
+	SpinSpeed = startUp_speed;
+	count = 0;
+  }
+  const angles = [];
+  
+  const rectangle = document.getElementsByClassName('lineBox');
+  var angle = 360/rectangle.length;
+  while(Spinning){
+    count++;
+	for(var j=0;j<rectangle.length;j++){
+		var deg = (SpinSpeed*count +(angle*j))+90;
+		rectangle[j].style.transform = "rotate(" + deg + "deg)";
+	}
+	which = ((deg-90)/angle+1)%rectangle.length;
+	document.getElementById("result").textContent = reverse_list[Math.floor(which)];
+	SpinSpeed=SpinSpeed-0.01;
+	if (SpinSpeed<startUp_speed/2){
+		Spinning = false;
+		break;
+	}
+	await delay(0.001);
+	
+		
+  }
+  
+}
+//border: 6px #000000 solid;
+function readList(filename){
+fetch(filename)
+    .then(function(response) {return response.text()})
+    .then(function(html) {
+		list = html;
+		//list = list.split("\n");
+		//list = list.filter(n => n)
+		
+		console.log(list);
+		list = list.split(/\r|\n| https/);
+		console.log(list)
+		list = list.filter(n => n);
+		console.log(list)
+		shop = new Array(list.length/2);
+		link = new Array(list.length/2);
+		
+		var count_var = 0;
+		for(var i=0;i<list.length;i+=2){
+			link[count_var]='https'+list[i+1];
+			shop[count_var]=list[i];
+			count_var++;
+		}
+		list = shop;
+		//console.log(shop);
+		reverse_list = Array.from(list);
+		reverse_list = reverse_list.reverse();
+		
+		delete_Line();
+		add_Line(Object.keys(list).length);
+
+		const Choice_text = document.getElementsByClassName('Choice_text');
+		const rectangle = document.getElementsByClassName('lineBox');
+		angle = 360/rectangle.length;
+		for(var j=0;j<Choice_text.length;j++){
+				Choice_text[j].textContent = list[j];
+				ini_angle = (angle*j)+90
+				rectangle[j].style.transform = "rotate(" + ini_angle + "deg)";
+			  }
+    })
+    .catch(function(err) {  
+        console.log('Failed to fetch page: ', err);  
+    });
+}
+function delete_Line(){
+	const LineBox = document.getElementsByClassName("lineBox");
+	while(LineBox.length > 0){
+        LineBox[0].parentNode.removeChild(LineBox[0]);
+    }
+}
+
+function add_Line(number){
+	for(var i=0;i<number;i++){
+		var lineBox = document.createElement("div");
+		lineBox.classList.add("lineBox");
+		var line = document.createElement("div");
+		line.classList.add("line");
+		var choice = document.createElement("div");
+		choice.classList.add("Choice_text");
+		line.appendChild(choice);
+		lineBox.appendChild(line);
+		document.getElementById("empty").appendChild(lineBox);
+	}
+}
+async function Change_link(){
+	await delay(0.1);
+	const Chosen = document.getElementById('result').textContent;
+	for(var i=0;i<shop.length;i++){
+			if(shop[i]==Chosen){
+				thisLink=link[i];
+			}
+		}
+	console.log(Chosen)
+	window.open(thisLink);
+}
+/*
+function readLink(){
+fetch('Link')
+	.then(function(response) {return response.text()})
+	.then(function(html) {
+		list = html;
+		//list = list.split("\r\n");
+		list = list.split(/\r\n| https/);
+		list = list.filter(n => n)
+		
+		shop = new Array(list.length/2);
+		link = new Array(list.length/2);
+		var count_var = 0;
+		for(var i=0;i<list.length;i+=2){
+			link[count_var]='https'+list[i+1];
+			shop[count_var]=list[i];
+			count_var++;
+		}
+	})
+	.catch(function(err) {  
+		console.log('Failed to fetch page: ', err);  
+	});
+}*/
+readList('breakfast');
+</script>
+
+<div class="main">
+
+
+<button class="btn breakfast" onclick="readList('breakfast');">Breakfast</button>
+<button class="btn lunch" onclick="readList('lunch');">Lunch</button>
+<button class="btn dinner" onclick="readList('dinner');">Dinner</button>
+<button class="btn drink" onclick="readList('drink');">Drink</button>
+
+<button id="mainBtn" class="Strbtn" onclick="rotat();">SPIN</button>
+<input type="range" min="-99" max="200" value="0" class="slider" id="Speed">
+<button class="linkbtn" onclick="Change_link();"></button>
+
+<div id="result"></div>
+
+<div class="Cricle">
+<div id="empty">
+<div class="lineBox"><div class="line"><div class="Choice_text">初始</div></div></div>
+
+</div>
+<button class="timeStart" onclick="countDown()">Random</button>
+<div class="triangle-down "></div>
+
+</div>
+<div>version 1.0</div>
+
+</body>
+</html> 
