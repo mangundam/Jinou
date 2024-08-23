@@ -295,8 +295,6 @@ async function countDown() {
     Spinning = true;
 	var SpinBar = document.getElementById("Speed").value/50+1;
 	var startUp_speed = (1 + Math.random() * 8)+SpinBar;
-	//console.log(SpinBar)
-	//console.log(startUp_speed)
 	SpinSpeed = startUp_speed;
 	count = 0;
   }
@@ -329,9 +327,7 @@ fetch(filename)
     .then(function(response) {return response.text()})
     .then(function(html) {
 		list = html;
-		//list = list.split("\n");
-		//list = list.filter(n => n)
-		
+
 		console.log(list);
 		list = list.split(/\r|\n| https/);
 		console.log(list)
@@ -398,29 +394,7 @@ async function Change_link(){
 	console.log(Chosen)
 	window.open(thisLink);
 }
-/*
-function readLink(){
-fetch('Link')
-	.then(function(response) {return response.text()})
-	.then(function(html) {
-		list = html;
-		//list = list.split("\r\n");
-		list = list.split(/\r\n| https/);
-		list = list.filter(n => n)
-		
-		shop = new Array(list.length/2);
-		link = new Array(list.length/2);
-		var count_var = 0;
-		for(var i=0;i<list.length;i+=2){
-			link[count_var]='https'+list[i+1];
-			shop[count_var]=list[i];
-			count_var++;
-		}
-	})
-	.catch(function(err) {  
-		console.log('Failed to fetch page: ', err);  
-	});
-}*/
+
 readList('lunch');
 </script>
 
