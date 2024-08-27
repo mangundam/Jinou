@@ -154,7 +154,7 @@ body {
 	height:200px;
 	font-weight: bold; 
 	width:200px;
-	margin:30px 8px 0px 8px;
+	margin:20px 8px 0px 8px;
 	font-size:38px;
 	background-color: #88FF88;
 	background-image: url('Image/Spin.png');
@@ -168,7 +168,7 @@ body {
 	height:200px;
 	font-weight: bold; 
 	width:200px;
-	margin:30px 8px 0px 8px;
+	margin:20px 8px 0px 8px;
 	font-size:38px;
 	background-color: #88FF88;
 	background-image: url('Image/SpinPause.gif');
@@ -189,15 +189,15 @@ body {
 }
 .slider {
 	-webkit-appearance: none;
-	width: 800px;
-	height: 100px;
+	width: 600px;
+	height: 75px;
 	background: #d3d3d3;
 	outline: none;
 	opacity: 0.7;
 	-webkit-transition: .2s;
 	transition: opacity .2s;
 	align:center;
-	margin:80px 0px 0px 30px;
+	margin:20px 0px 0px 30px;
 	position:absolute;
 	background-image: url('Image/Sliderbar.png');
 	background-size: 100% 100%;
@@ -210,8 +210,8 @@ body {
 .slider::-webkit-slider-thumb {//button
 	-webkit-appearance: none;
 	appearance: none;
-	width: 180px;
-	height: 180px;
+	width: 90px;
+	height: 90px;
 	//background: #04CC04;
 	cursor: pointer;
 	background-image: url('Image/slider.png');
@@ -225,17 +225,29 @@ body {
 	cursor: pointer;
 }
 .linkbtn{
-	background-image: url('Image/maps.png');
-	height: 220px;
-	width: 220px;
+	background-image: url('Image/mapicon.png');
+	height: 180px;
+	width: 180px;
 	background-size: 100% 100%;
-	margin:12px 8px 0px 8px;
-	position:absolute;
+	margin: 20px 8px 0px 20px;
+	//position:absolute;
 	background-color:rgba(0, 0, 0, 0);
 	border: 0px #000000 solid;
 }
 .linkbtn:hover {
-	border: 6px #000000 solid;
+	//border: 6px #000000 solid;
+}
+.rotatetext{
+	font-size: 48px;
+	margin: 0px 0px 0px 200px;
+}
+.invisiable{
+	visibility: hidden;
+}
+.speedDiv{
+	height:200px;
+	width:600px;
+	margin:20px 8px 0px 8px;
 }
 </style></head>
 <body>
@@ -404,16 +416,17 @@ readList('lunch');
 </script>
 
 <div class="main">
+<button class="btn lunch" onclick="readList('lunch');"style="float:left;">Lunch</button>
 
+<button id="mainBtn" class="Strbtn" onclick="countDown();" style="float:left;">SPIN</button>
 
-
-<button class="btn lunch" onclick="readList('lunch');">Lunch</button>
-<button class="btn dinner" onclick="readList('dinner');">Dinner</button>
-
-<button id="mainBtn" class="Strbtn" onclick="countDown();">SPIN</button>
-<button class="linkbtn" onclick="Change_link();"></button>
+<div class="speedDiv" style="float:left;">
+<span class="rotatetext">Rotate Speed</span>
 <br>
 <input type="range" min="-99" max="200" value="0" class="slider" id="Speed">
+</div>
+
+<button class="linkbtn" onclick="Change_link();"><span class="invisiable">0</span></button>
 
 <div id="result"></div>
 
