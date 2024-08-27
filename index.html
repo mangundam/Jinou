@@ -75,13 +75,13 @@ body {
 //}
 .timeStart{
 	position:absolute;
-	height: 180px;
-	width: 180px;
+	height: 60px;
+	width: 60px;
 	background-color: #F0F0F0;
 	border-radius: 50%;
 	border:5px #70EE70 solid;
-	margin:360px 0px 0px 360px ;
-	background-image: url('Image/start.png');
+	margin:420px 0px 0px 420px ;
+	//background-image: url('Image/start.png');
 	background-size: 100% 100%;
 	font-size:18px;
 	font-weight:bold;
@@ -94,8 +94,8 @@ body {
 	background-color: #E0FeE0;
 }
 .btn{
-	width:300px;
-	height:300px;
+	width:200px;
+	height:200px;
 	font-size:40px;
 	font-weight: bold; 
 	margin:auto 10px;
@@ -154,7 +154,7 @@ body {
 	height:200px;
 	font-weight: bold; 
 	width:200px;
-	margin:30px 0px 0px 30px;
+	margin:30px 8px 0px 8px;
 	font-size:38px;
 	background-color: #88FF88;
 	background-image: url('Image/Spin.png');
@@ -168,7 +168,7 @@ body {
 	height:200px;
 	font-weight: bold; 
 	width:200px;
-	margin:30px 0px 0px 30px;
+	margin:30px 8px 0px 8px;
 	font-size:38px;
 	background-color: #88FF88;
 	background-image: url('Image/SpinPause.gif');
@@ -180,7 +180,7 @@ body {
 }
 
 #result{
-	margin:60px auto -150px auto;
+	margin:200px auto -150px auto;
 	font-size:100px;
 	width:700px;
 	height: 120px;
@@ -199,7 +199,7 @@ body {
 	align:center;
 	margin:80px 0px 0px 30px;
 	position:absolute;
-	//background-image: url('Image/Sliderbar.png');
+	background-image: url('Image/Sliderbar.png');
 	background-size: 100% 100%;
 }
 
@@ -226,10 +226,10 @@ body {
 }
 .linkbtn{
 	background-image: url('Image/maps.png');
-	height: 200px;
-	width: 200px;
+	height: 220px;
+	width: 220px;
 	background-size: 100% 100%;
-	margin:25px 0px 0px 850px;
+	margin:12px 8px 0px 8px;
 	position:absolute;
 	background-color:rgba(0, 0, 0, 0);
 	border: 0px #000000 solid;
@@ -288,38 +288,43 @@ async function rotat() {
 }
 async function countDown() {
 	if (Spinning == true){
-	rotat();
+		rotat();
 	}
 	
 	if (Spinning == false){
-    Spinning = true;
-	var SpinBar = document.getElementById("Speed").value/50+1;
-	var startUp_speed = (1 + Math.random() * 8)+SpinBar;
-	SpinSpeed = startUp_speed;
-	count = 0;
-  }
-  const angles = [];
-  
-  const rectangle = document.getElementsByClassName('lineBox');
-  var angle = 360/rectangle.length;
-  while(Spinning){
-    count++;
-	for(var j=0;j<rectangle.length;j++){
-		var deg = (SpinSpeed*count +(angle*j))+90;
-		rectangle[j].style.transform = "rotate(" + deg + "deg)";
+		Spinning = true;
+		var SpinBar = document.getElementById("Speed").value/50+1;
+		var startUp_speed = (1 + Math.random() * 8)+SpinBar;
+		SpinSpeed = startUp_speed;
+		count = 0;
 	}
-	which = ((deg-90)/angle+1)%rectangle.length;
-	document.getElementById("result").textContent = reverse_list[Math.floor(which)];
-	SpinSpeed=SpinSpeed-0.01;
-	if (SpinSpeed<startUp_speed/2){
-		Spinning = false;
-		break;
-	}
-	await delay(0.001);
-	
+	const btnText = document.getElementById("mainBtn");
+	btnText.textContent = "Spining";
+	btnText.classList.add('Pausebtn');
+	btnText.classList.remove('Strbtn');
+	const angles = [];
+	const rectangle = document.getElementsByClassName('lineBox');
+	var angle = 360/rectangle.length;
+	while(Spinning){
+		count++;
+		for(var j=0;j<rectangle.length;j++){
+			var deg = (SpinSpeed*count +(angle*j))+90;
+			rectangle[j].style.transform = "rotate(" + deg + "deg)";
+		}
+		which = ((deg-90)/angle+1)%rectangle.length;
+		document.getElementById("result").textContent = reverse_list[Math.floor(which)];
+		SpinSpeed=SpinSpeed-0.01;
+		if (SpinSpeed<startUp_speed/2){
+			Spinning = false;
+			break;
+		}
+		await delay(0.001);
 		
-  }
-  
+			
+	}
+	btnText.textContent = "Spin";
+	btnText.classList.add('Strbtn');
+	btnText.classList.remove('Pausebtn');
 }
 //border: 6px #000000 solid;
 function readList(filename){
@@ -401,14 +406,14 @@ readList('lunch');
 <div class="main">
 
 
-<button class="btn breakfast" onclick="readList('breakfast');">Breakfast</button>
+
 <button class="btn lunch" onclick="readList('lunch');">Lunch</button>
 <button class="btn dinner" onclick="readList('dinner');">Dinner</button>
-<button class="btn drink" onclick="readList('drink');">Drink</button>
 
-<button id="mainBtn" class="Strbtn" onclick="rotat();">SPIN</button>
-<input type="range" min="-99" max="200" value="0" class="slider" id="Speed">
+<button id="mainBtn" class="Strbtn" onclick="countDown();">SPIN</button>
 <button class="linkbtn" onclick="Change_link();"></button>
+<br>
+<input type="range" min="-99" max="200" value="0" class="slider" id="Speed">
 
 <div id="result"></div>
 
@@ -417,7 +422,7 @@ readList('lunch');
 <div class="lineBox"><div class="line"><div class="Choice_text">初始</div></div></div>
 
 </div>
-<button class="timeStart" onclick="countDown()">Random</button>
+<button class="timeStart" onclick=""></button>
 <div class="triangle-down "></div>
 
 </div>
