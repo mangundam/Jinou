@@ -14,6 +14,7 @@ body {
 
 }
 .main{
+
 	width:1080px;
 	height:1920px;
 	//border: 5px solid #00FF00;
@@ -95,8 +96,8 @@ body {
 	background-color: #E0FeE0;
 }
 .btn{
-	width:200px;
-	height:200px;
+	width:180px;
+	height:180px;
 	font-size:40px;
 	font-weight: bold; 
 	margin:auto 10px;
@@ -105,20 +106,16 @@ body {
 .btn:hover {
 	background-color:#E0E0E0;
 }
-.breakfast{
-	visibility: hidden;
-	background-color:#FCE070;
-	background-image: url('Image/morning.png');
-	background-size: 100% 100%;
-}
+
 .lunch{
 	background-color:#EC9040;
 	background-image: url('Image/lunch.png');
 	background-size: 100% 100%;
 }
-.dinner{
+
+.delivery{
 	background-color:#7C70A0;
-	background-image: url('Image/dinner.png');
+	background-image: url('Image/delivery.png');
 	background-size: 100% 100%;
 }
 .drink{
@@ -130,31 +127,38 @@ body {
 .breakfast:active {
 	border: 6px #000000 solid;
 }
-.lunch:active {
-	border: 6px #000000 solid;
-}
-.dinner:active {
-	border: 6px #000000 solid;
-}
-.drink:active {
-	border: 6px #000000 solid;
-}
 .breakfast:hover {
+	border: 6px #000000 solid;
+}
+.lunch:active {
 	border: 6px #000000 solid;
 }
 .lunch:hover {
 	border: 6px #000000 solid;
 }
+.dinner:active {
+	border: 6px #000000 solid;
+}
 .dinner:hover {
+	border: 6px #000000 solid;
+}
+.drink:active {
 	border: 6px #000000 solid;
 }
 .drink:hover {
 	border: 6px #000000 solid;
 }
+.delivery:active {
+	border: 6px #000000 solid;
+}
+.delivery:hover {
+	border: 6px #000000 solid;
+}
+
 .Strbtn{
-	height:200px;
+	height:180px;
 	font-weight: bold; 
-	width:200px;
+	width:180px;
 	margin:20px 8px 0px 8px;
 	font-size:38px;
 	background-color: #88FF88;
@@ -166,9 +170,9 @@ body {
   border: 6px #000000 solid;
 }
 .Pausebtn{
-	height:200px;
+	height:180px;
 	font-weight: bold; 
-	width:200px;
+	width:180px;
 	margin:20px 8px 0px 8px;
 	font-size:38px;
 	background-color: #88FF88;
@@ -181,16 +185,24 @@ body {
 }
 
 #result{
-	margin:100px auto -120px auto;
-	font-size:100px;
-	width:700px;
+	margin:-80px auto 120px auto;
+	font-size:90px;
+	width:900px;
+	height: 120px;
+	//border: 5px solid red;
+	text-align:center;
+}
+#dish{
+	margin:20px auto -80px auto;
+	font-size:90px;
+	width:900px;
 	height: 120px;
 	//border: 5px solid red;
 	text-align:center;
 }
 .slider {
 	-webkit-appearance: none;
-	width: 400px;
+	width: 250px;
 	height: 50px;
 	background: #d3d3d3;
 	outline: none;
@@ -230,7 +242,7 @@ body {
 	height: 180px;
 	width: 180px;
 	background-size: 100% 100%;
-	margin: 20px 8px 0px 30px;
+	margin: 20px 8px 0px 10px;
 	//position:absolute;
 	background-color:rgba(0, 0, 0, 0);
 	border: 0px #000000 solid;
@@ -238,18 +250,122 @@ body {
 .linkbtn:hover {
 	//border: 6px #000000 solid;
 }
+.menubtn{
+	background-image: url('Menu/test.png');
+	height: 180px;
+	width: 150px;
+	background-size: 100% 100%;
+	margin: 20px 0px 0px 5px;
+	//position:absolute;
+	background-color:rgba(0, 0, 0, 0);
+	border: 0px #000000 solid;
+}
 .rotatetext{
 	font-family: "Times New Roman";
-	font-size: 48px;
-	margin: 0px 0px 0px 100px;
+	font-size: 44px;
+	margin: 0px 0px 0px 40px;
 }
 .invisiable{
 	visibility: hidden;
 }
 .speedDiv{
 	height:200px;
-	width:400px;
-	margin:20px 8px 0px 8px;
+	width:300px;
+	margin:20px 4px 0px 4px;
+}
+.leftbtnzone{
+	flex-direction: column;
+	flex: 1;
+	height:436px;
+	width:200px;
+	margin-right:30px;
+}
+.rightbtnzone{
+	flex: 2;
+}
+.dropdown-container {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-button {
+	width:360px;
+	height:100px;
+	font-size:40px;
+	font-weight: bold; 
+	margin:20px 20px 0px 28px;
+	cursor: pointer;
+	background-color: #64dd7b;
+	color: white;
+	border: none;
+	border-radius: 5px;
+}
+
+.dropdown-menu {
+	font-weight: bold; 
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	z-index: 100;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.dropdown-menu button {
+
+	font-size:30px;
+	font-weight: bold; 
+	width: 100%;
+	padding: 10px;
+	border: none;
+	background: white;
+	text-align: left;
+	cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+	background-color: #f0f0f0;
+}
+.overlay {
+	position: fixed;
+	top: 200px;  /* 避開按鈕 */
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+	height: 1500px;
+	background: white;
+	border: 2px solid #333;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	display: none;  /* 預設隱藏 */
+	z-index: 999;
+}
+
+
+.overlay iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+/* 關閉按鈕 */
+.close-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: red;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 80px;
+	height: 120px;
+	width: 120px;
 }
 </style></head>
 <body>
@@ -260,6 +376,7 @@ var SpinSpeed = 1;
 var list;
 var reverse_list;
 var shop,link;
+var Dish_mode = false;
 function delay(n){
     return new Promise(function(resolve){
         setTimeout(resolve,n*1000);
@@ -295,7 +412,10 @@ async function rotat() {
 	  }if(Spinning==false){
   break;}
 		which = ((deg-90)/angle+1)%rectangle.length;
-		document.getElementById("result").textContent = reverse_list[Math.floor(which)];
+		if (Dish_mode == false){
+			document.getElementById("result").textContent = reverse_list[Math.floor(which)];}
+		if (Dish_mode == true){
+			document.getElementById("dish").textContent = reverse_list[Math.floor(which)];}
 	  	await delay(0.001);
   }
   
@@ -326,7 +446,10 @@ async function countDown() {
 			rectangle[j].style.transform = "rotate(" + deg + "deg)";
 		}
 		which = ((deg-90)/angle+1)%rectangle.length;
-		document.getElementById("result").textContent = reverse_list[Math.floor(which)];
+		if (Dish_mode == false){
+			document.getElementById("result").textContent = reverse_list[Math.floor(which)];}
+		if (Dish_mode == true){
+			document.getElementById("dish").textContent = reverse_list[Math.floor(which)];}
 		SpinSpeed=SpinSpeed-0.01;
 		if (SpinSpeed<startUp_speed/2){
 			Spinning = false;
@@ -345,6 +468,7 @@ function readList(filename){
 fetch(filename)
     .then(function(response) {return response.text()})
     .then(function(html) {
+		Dish_mode = false;
 		list = html;
 
 		console.log(list);
@@ -354,6 +478,8 @@ fetch(filename)
 		console.log(list)
 		shop = new Array(list.length/2);
 		link = new Array(list.length/2);
+		
+		
 		
 		var count_var = 0;
 		for(var i=0;i<list.length;i+=2){
@@ -365,6 +491,32 @@ fetch(filename)
 		//console.log(shop);
 		reverse_list = Array.from(list);
 		reverse_list = reverse_list.reverse();
+		
+		const dropdownButton = document.getElementById("dropdownButton");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+		
+		
+		const dropdown = document.getElementById('dropdown');
+		list.forEach(item => {
+			let option = document.createElement('button');
+				option.textContent = item;
+				option.addEventListener('click', function () {
+					document.getElementById("result").textContent = item;
+					dropdownButton.textContent = "指定選項";
+					dropdownMenu.style.display = "none";
+				});
+				dropdownMenu.appendChild(option);
+		});
+		dropdownButton.addEventListener("click", function () {
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.style.display = "none";
+            }
+        });
+		
 		
 		delete_Line();
 		add_Line(Object.keys(list).length);
@@ -414,23 +566,86 @@ async function Change_link(){
 	window.open(thisLink);
 }
 
+function readMenuList(filename){
+fetch(filename)
+    .then(function(response) {return response.text()})
+    .then(function(html) {
+		list = html;
+		Dish_mode = true;
+
+		console.log(list);
+		list = list.split(/\r|\n/);
+		console.log(list);
+		list = list.filter(n => n);
+		console.log(list);
+		reverse_list = Array.from(list);
+		reverse_list = reverse_list.reverse();
+		
+		delete_Line();
+		add_Line(Object.keys(list).length);
+
+		const Choice_text = document.getElementsByClassName('Choice_text');
+		const rectangle = document.getElementsByClassName('lineBox');
+		angle = 360/rectangle.length;
+		for(var j=0;j<Choice_text.length;j++){
+				Choice_text[j].textContent = list[j];
+				ini_angle = (angle*j)+90
+				rectangle[j].style.transform = "rotate(" + ini_angle + "deg)";
+			  }
+    })
+    .catch(function(err) {  
+        console.log('Failed to fetch page: ', err);  
+    });
+}
+function show_menu(){
+	const Chosen = document.getElementById('result').textContent;
+	readMenuList("TextMenu//"+Chosen+".txt");
+	
+}
+
+function toggleOverlay() {
+	const Chosen = document.getElementById('result').textContent;
+	document.getElementById("iframeContent").src = "DetailMenu//"+Chosen+".html";
+	const overlay = document.getElementById("overlay");
+	overlay.style.display = (overlay.style.display === "block") ? "none" : "block";
+}
+
 readList('lunch');
 </script>
 
 <div class="main">
-<button class="btn lunch" onclick="readList('lunch');"style="float:left;">Lunch</button>
-
-<button id="mainBtn" class="Strbtn" onclick="countDown();" style="float:left;">SPIN</button>
-
-<div class="speedDiv" style="float:left;">
-<span class="rotatetext">Rotate Speed</span>
-<br>
-<input type="range" min="-99" max="200" value="0" class="slider" id="Speed">
+<div style="display: flex; height:400px;">
+<div class="leftbtnzone">
+	<button class="btn lunch" onclick="readList('lunch');"style="float:left;">Lunch</button>
+	<div class="dropdown-container">
+		<button id="dropdownButton" class="dropdown-button">指定選項</button>
+		<div id="dropdownMenu" class="dropdown-menu"></div>
+	</div>
+	<!--<button class="btn delivery" onclick="readList('lunch');"style="float:left;">Delicvery</button> -->
 </div>
 
-<button class="linkbtn" onclick="Change_link();"><span class="invisiable">0</span></button>
+<button id="mainBtn" class="Strbtn rightbtnzone" onclick="countDown();" style="float:left;">SPIN</button>
 
+<div class="speedDiv" style="float:left;">
+<span class="rotatetext rightbtnzone">Rotate Speed</span>
+<br>
+<input type="range" min="-99" max="200" value="0" class="slider rightbtnzone" id="Speed">
+</div>
+
+<button class="linkbtn rightbtnzone" onclick="Change_link();"><span class="invisiable">0</span></button>
+
+
+<button class="menubtn rightbtnzone" onclick="toggleOverlay();"><span class="invisiable">0</span></button>
+
+</div>
 <div id="result"></div>
+<!--<div id="dish"></div>-->
+
+<div class="overlay" id="overlay">
+	<button class="close-btn" onclick="toggleOverlay()">✖</button>
+	<iframe id="iframeContent" src=""></iframe>
+
+</div>
 
 <div class="Cricle">
 <div id="empty">
