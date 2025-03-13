@@ -131,10 +131,12 @@ body {
 	border: 6px #000000 solid;
 }
 .lunch:active {
-	border: 6px #000000 solid;
+	outline: 6px #000000 solid;
 }
 .lunch:hover {
-	border: 6px #000000 solid;
+	//opacity: 0.7;
+	box-shadow: 6px 3px 6px #000000;
+	#outline: 6px #FFFFFF solid;
 }
 .dinner:active {
 	border: 6px #000000 solid;
@@ -164,10 +166,13 @@ body {
 	background-color: #88FF88;
 	background-image: url('Image/Spin.png');
 	background-size: 100% 100%;
+	border: 0px #000000 solid;
+	box-shadow: 6px 3px 6px #000000;
 }
 .Strbtn:hover {
-  background-color:#E0FFE0;
-  border: 6px #000000 solid;
+	box-shadow: 0px 0px 12px #FFFFFF;
+	//background-color:#E0FFE0;
+	//outline: 6px #000000 solid;
 }
 .Pausebtn{
 	height:180px;
@@ -178,10 +183,43 @@ body {
 	background-color: #88FF88;
 	background-image: url('Image/SpinPause.gif');
 	background-size: 100% 100%;
+	border: 0px #000000 solid;
+	box-shadow: 6px 3px 6px #000000;
 }
 .Pausebtn:hover {
-	background-color:#FFE0E0;
-	border: 6px #000000 solid;
+	box-shadow: 0px 0px 12px #FFFFFF;
+	//background-color:#FFE0E0;
+	//outline: 6px #000000 solid;
+}
+.linkbtn{
+	background-image: url('Image/mapicon.png');
+	height: 180px;
+	width: 180px;
+	background-size: 100% 100%;
+	margin: 20px 8px 0px 8px;
+	//position:absolute;
+	background-color:rgba(0, 0, 0, 0);
+	border: 0px #000000 solid;
+	box-shadow: 6px 3px 6px #000000;
+}
+.linkbtn:hover {
+	box-shadow: 0px 0px 12px #FFFFFF;
+}
+.menubtn{
+	background-image: url('Image/Menu.png');
+	height: 180px;
+	width:180px;
+	background-size: 100% 100%;
+	margin: 20px 8px 0px 8px;
+	font-weight: bold; 
+	font-size:38px;
+	border: 0px #000000 solid;
+	box-shadow: 6px 3px 6px #000000;
+	padding-bottom:50px
+	
+}
+.menubtn:hover {
+	box-shadow: 0px 0px 12px #FFFFFF;
 }
 
 #result{
@@ -237,33 +275,18 @@ body {
 	background: #04AA6D;
 	cursor: pointer;
 }
-.linkbtn{
-	background-image: url('Image/mapicon.png');
-	height: 180px;
-	width: 180px;
-	background-size: 100% 100%;
-	margin: 20px 8px 0px 10px;
-	//position:absolute;
-	background-color:rgba(0, 0, 0, 0);
-	border: 0px #000000 solid;
-}
-.linkbtn:hover {
-	//border: 6px #000000 solid;
-}
-.menubtn{
-	background-image: url('Menu/test.png');
-	height: 180px;
-	width: 150px;
-	background-size: 100% 100%;
-	margin: 20px 0px 0px 5px;
-	//position:absolute;
-	background-color:rgba(0, 0, 0, 0);
-	border: 0px #000000 solid;
+
+.blank{
+	margin: 0px 48px;
+	width: 300px;
+	height: 100px;
+	visibility: hidden;
 }
 .rotatetext{
-	font-family: "Times New Roman";
-	font-size: 44px;
-	margin: 0px 0px 0px 40px;
+	font-family: sans-serif;
+	font-size: 40px;
+	margin: 0px 0px 0px 90px;
+	text-align: center;
 }
 .invisiable{
 	visibility: hidden;
@@ -289,8 +312,8 @@ body {
 }
 
 .dropdown-button {
-	width:360px;
-	height:100px;
+	width:180px;
+	height:180px;
 	font-size:40px;
 	font-weight: bold; 
 	margin:20px 20px 0px 28px;
@@ -299,6 +322,10 @@ body {
 	color: white;
 	border: none;
 	border-radius: 5px;
+	box-shadow: 6px 3px 6px #000000;
+}
+.dropdown-button:hover {
+	background-color: #75ee8c;
 }
 
 .dropdown-menu {
@@ -310,7 +337,7 @@ body {
 	background-color: white;
 	border: 1px solid #ccc;
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	width: 100%;
+	width: 150%;
 	z-index: 100;
 	border-radius: 5px;
 	overflow: hidden;
@@ -320,7 +347,7 @@ body {
 
 	font-size:30px;
 	font-weight: bold; 
-	width: 100%;
+	width: 150%;
 	padding: 10px;
 	border: none;
 	background: white;
@@ -503,7 +530,7 @@ fetch(filename)
 				option.textContent = item;
 				option.addEventListener('click', function () {
 					document.getElementById("result").textContent = item;
-					dropdownButton.textContent = "指定選項";
+					dropdownButton.textContent = "餐廳";
 					dropdownMenu.style.display = "none";
 				});
 				dropdownMenu.appendChild(option);
@@ -636,26 +663,29 @@ window.onload = resizeIframeToFitContent;
 <div class="main">
 <div style="display: flex; height:400px;">
 <div class="leftbtnzone">
-	<button class="btn lunch" onclick="readList('lunch');"style="float:left;">Lunch</button>
+	<!--<button class="btn lunch" onclick="readList('lunch');"style="float:left;">Lunch</button>-->
 	<div class="dropdown-container">
-		<button id="dropdownButton" class="dropdown-button">指定選項</button>
+		<button id="dropdownButton" class="dropdown-button">餐廳</button>
 		<div id="dropdownMenu" class="dropdown-menu"></div>
+	</div>
+	<div class="speedDiv" style="float:left;">
+		<span class="rotatetext">Speed</span>
+		<br>
+		<input type="range" min="-99" max="200" value="0" class="slider rightbtnzone" id="Speed">
 	</div>
 	<!--<button class="btn delivery" onclick="readList('lunch');"style="float:left;">Delicvery</button> -->
 </div>
 
 <button id="mainBtn" class="Strbtn rightbtnzone" onclick="countDown();" style="float:left;">Spin</button>
 
-<div class="speedDiv" style="float:left;">
-<span class="rotatetext rightbtnzone">Rotate Speed</span>
-<br>
-<input type="range" min="-99" max="200" value="0" class="slider rightbtnzone" id="Speed">
-</div>
+
 
 <button class="linkbtn rightbtnzone" onclick="Change_link();"><span class="invisiable">0</span></button>
 
 
-<button class="menubtn rightbtnzone" onclick="toggleOverlay();"><span class="invisiable">0</span></button>
+<button class="menubtn rightbtnzone" onclick="toggleOverlay();">Menu</button>
+<button class="blank rightbtnzone" onclick=";"><span class="invisiable">0</span></button>
+
 
 </div>
 <div id="result"></div>
@@ -676,7 +706,7 @@ window.onload = resizeIframeToFitContent;
 <div class="triangle-down "></div>
 
 </div>
-<div>version 1.0</div>
+<div>version 2.3</div>
 
 </body>
 </html> 
