@@ -223,7 +223,7 @@ body {
 }
 
 #result{
-	margin:-80px auto 120px auto;
+	margin:-60px auto -80px auto;
 	font-size:90px;
 	width:900px;
 	height: 120px;
@@ -312,17 +312,20 @@ body {
 }
 
 .dropdown-button {
+	background-image: url('Image/restaurant.png');
+	background-size: 100% 100%;
 	width:180px;
 	height:180px;
-	font-size:40px;
+	font-size:24px;
 	font-weight: bold; 
 	margin:20px 20px 0px 28px;
 	cursor: pointer;
 	background-color: #64dd7b;
-	color: white;
+	color: black;
 	border: none;
 	border-radius: 5px;
 	box-shadow: 6px 3px 6px #000000;
+	padding-bottom:125px
 }
 .dropdown-button:hover {
 	background-color: #75ee8c;
@@ -530,7 +533,7 @@ fetch(filename)
 				option.textContent = item;
 				option.addEventListener('click', function () {
 					document.getElementById("result").textContent = item;
-					dropdownButton.textContent = "餐廳";
+					dropdownButton.textContent = "Restaurant";
 					dropdownMenu.style.display = "none";
 				});
 				dropdownMenu.appendChild(option);
@@ -665,7 +668,7 @@ window.onload = resizeIframeToFitContent;
 <div class="leftbtnzone">
 	<!--<button class="btn lunch" onclick="readList('lunch');"style="float:left;">Lunch</button>-->
 	<div class="dropdown-container">
-		<button id="dropdownButton" class="dropdown-button">餐廳</button>
+		<button id="dropdownButton" class="dropdown-button">Restaurant</button>
 		<div id="dropdownMenu" class="dropdown-menu"></div>
 	</div>
 	<div class="speedDiv" style="float:left;">
