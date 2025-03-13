@@ -3,9 +3,10 @@ body {
 	height:1920px;
 	}
 .selected {
-	outline: 5px solid red;
+	outline: 10px solid red;
 	position: relative;
 	z-index: 10;
+	box-shadow: 0 0 0 15px #78FF85;
 	}
 button{
 	margin-left: 50px;
