@@ -332,13 +332,13 @@ body {
 	background-color: #f0f0f0;
 }
 .overlay {
-	position: fixed;
-	top: 20px;  /* 避開按鈕 */
+	position: absolute;
+	top: 80px;  /* 避開按鈕 */
 	left: 50%;
 	transform: translateX(-50%);
-	width: 80%;
-	height: 1500px;
-	background: white;
+	width: 900px;
+	height: 1920px;
+	background: rgba(255, 255, 255, 0.5); /* 半透明背景 */
 	border: 2px solid #333;
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 	display: none;  /* 預設隱藏 */
@@ -355,17 +355,18 @@ body {
 /* 關閉按鈕 */
 .close-btn {
 	position: absolute;
-	top: 10px;
+	top: 5px;
 	right: 10px;
 	background-color: red;
 	color: white;
 	border: none;
-	padding: 5px 10px;
+	//padding: 5px 10px;
+	text-align: center;
 	cursor: pointer;
 	border-radius: 5px;
-	font-size: 80px;
-	height: 120px;
-	width: 120px;
+	font-size: 60px;
+	height: 90px;
+	width: 90px;
 }
 </style></head>
 <body>
@@ -611,6 +612,25 @@ function toggleOverlay() {
 }
 
 readList('lunch');
+function resizeIframeToFitContent() {
+    const overlay = document.getElementById("overlay");
+    const iframe = document.getElementById("iframeContent");
+    iframe.onload = function() {
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const table = iframeDoc.querySelector("table");
+        if (table) {
+            const tableWidth = table.offsetWidth;
+            const tableHeight = table.offsetHeight;
+
+            overlay.style.width = tableWidth + 20 + "px";
+            overlay.style.height = tableHeight + 105 + "px";
+            iframe.style.width = tableWidth +25+ "px";
+            iframe.style.height = tableHeight +101 + "px";
+        }
+    };
+}
+
+window.onload = resizeIframeToFitContent;
 </script>
 
 <div class="main">
@@ -624,7 +644,7 @@ readList('lunch');
 	<!--<button class="btn delivery" onclick="readList('lunch');"style="float:left;">Delicvery</button> -->
 </div>
 
-<button id="mainBtn" class="Strbtn rightbtnzone" onclick="countDown();" style="float:left;">SPIN</button>
+<button id="mainBtn" class="Strbtn rightbtnzone" onclick="countDown();" style="float:left;">Spin</button>
 
 <div class="speedDiv" style="float:left;">
 <span class="rotatetext rightbtnzone">Rotate Speed</span>
@@ -643,7 +663,7 @@ readList('lunch');
 
 <div class="overlay" id="overlay">
 	<button class="close-btn" onclick="toggleOverlay()">✖</button>
-	<iframe id="iframeContent" src=""></iframe>
+	<iframe id="iframeContent" src="" allowTransparency="true" style="background: transparent;"></iframe>
 
 </div>
 
